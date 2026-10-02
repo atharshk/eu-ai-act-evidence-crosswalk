@@ -8,7 +8,7 @@
 |---|---|---|
 | Regulation (EU) 2024/1689 (AI Act), OJ L, 12.7.2024. ELI: http://data.europa.eu/eli/reg/2024/1689/oj | Article numbers, obligations, role and tier analysis. The PDF supplied with the project was read directly. | **Primary, read in full as supplied. Not a consolidated version.** |
 | NIST AI RMF 1.0 (NIST AI 100-1, January 2023). https://doi.org/10.6028/NIST.AI.100-1 | Subcategory identifiers and wording; the PDF supplied with the project was used. All cited subcategories are machine-checked against an ID list. | **Primary, supplied.** |
-| ISO/IEC 42001:2023 and ISO/IEC 27001:2022 | Annex A identifiers from the author's metadata skeleton files supplied with the project. | **Skeleton only; no standard text was supplied or reproduced.** Main-body clause numbers are from author knowledge, unverified. |
+| ISO/IEC 42001:2023 and ISO/IEC 27001:2022 | Annex A identifiers from the author's metadata skeleton files supplied with the project. | **Skeleton only; no standard text was supplied or reproduced.** Identifiers also compared with public listings (below). Main-body clause numbers are not cited. |
 
 ## Amending act: Regulation (EU) 2026/1744 ("Digital Omnibus on AI")
 
@@ -22,6 +22,9 @@
 | Jones Walker: https://www.joneswalker.com/en/insights/blogs/ai-law-blog/yes-august-2-still-matters-the-eu-approved-a-high-risk-ai-delay-but-most-trans.html?id=102nbon | What still applied from 2 Aug 2026. | Secondary |
 | Cooley: https://cdp.cooley.com/digital-ai-omnibus-delays-key-deadlines-introduces-new-rules/ | Deadlines, grace periods for systems already on the market. | Secondary |
 | Abreu Advogados: https://abreuadvogados.com/en/conhecimento/publications/digital-omnibus-regulation-on-ai-the-key-amendments-to-the-ai-act/ | Article-level amendments. | Secondary; one note on Art. 4 differed from the regulation-text summaries (see TIMELINE.md) |
+| Gibson Dunn: https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/ | Proposal was conditional; agreed text uses fixed dates; transitional period to 2 Dec 2026 for the new Art. 5 prohibitions; Art. 4 softened. | Secondary (describes the trilogue agreement) |
+| Cobalt Legal: https://www.cobalt.legal/news-cases/digital-omnibus-on-ai/ | New prohibitions from 2 Dec 2026; the "conditional" wording refers to substantial-change grandfathering (Art. 111(2)). | Secondary |
+| EUR-Lex HTML text of the OJ publication: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202601744 | Recital 40 (fixed dates), amended Art. 4 / 4a, early articles. | **Primary, read in part**: the fetch cut off before the operative Art. 113 |
 | K&L Gates: https://www.klgates.com/EU-Digital-Omnibus-on-AI-Enters-Into-Force-7-31-2026 | Attempted. | **Fetch returned HTTP 503; not relied on.** |
 
 ## Harmonised standards (CEN-CENELEC JTC 21)
@@ -34,6 +37,14 @@
 | Law and Technology, EN 18286: https://lawandtechnology.eu/en/en-18286-the-quality-management-system-for-article-17-of-the-ai-act-nears-publication/ | EN 18286 scope and timing. | Secondary |
 | CSA note on prEN 18286 and ISO 42001: https://labs.cloudsecurityalliance.org/research/csa-research-note-eu-ai-act-pren-18286-iso-42001-20260428-cs/ | Relationship between the QMS standard and ISO 42001 (the "annex maps to ISO 42001" claim). | Secondary; **single-source claim** |
 | European Commission, standardisation page: https://digital-strategy.ec.europa.eu/en/policies/ai-act-standardisation | Background on the standardisation request. | Official page; I did not extract M/613 details beyond the expiry date from secondary sources |
+
+## ISO Annex A identifier corroboration (identifiers only, not standard text)
+
+| Source | Use | Status |
+|---|---|---|
+| AI Verify Foundation crosswalk to ISO 42001: https://aiverifyfoundation.sg/wp-content/uploads/2024/06/Crosswalk-AIV-and-ISO42001-final.pdf | Compared its list of 38 Annex A control identifiers with the skeleton: agree. | Secondary |
+| TCSA ISO 42001 controls page: https://www.tcsa.in/frameworks/iso-42001/controls | Same comparison: agree. | Secondary |
+| Presencis ISO 42001 page: https://presencis.com/regulations/iso-42001/article-A/ | Listed different identifiers and titles that match neither the skeleton nor the other two. **Not used.** | Shown to explain why no single public page was trusted |
 
 ## NIST
 

@@ -30,7 +30,7 @@ Each entry gives the attack, the answer, where in the repository the answer live
 
 **Answer.** It moved: Regulation (EU) 2026/1744 pushed high-risk obligations to 2 Dec 2027 (Annex III) and 2 Aug 2028 (Annex I). The README and TIMELINE.md carry an "as of 2 October 2026" stamp, say the position is subject to ongoing amendment, and list what I did and did not verify. The 2024 text supplied with the project predates the amendment, so each row has an Omnibus-status column.
 **Where.** `docs/TIMELINE.md`; README "Version stamps"; `omnibus_2026_1744_status` column.
-**Weak point.** This is the biggest verification gap. I did **not** read the OJ text of 2026/1744 (the EUR-Lex page returned metadata only). Dates are corroborated by several secondary sources; article-level amendments (Arts. 4, 4a, 10, 27(4), 42(3) and others) come from law-firm notes and tool-produced summaries, and one source contradicted the others on Art. 4. I followed the regulation-text summaries, but this must be checked against the OJ before anyone relies on it.
+**Weak point.** This is the biggest verification gap. I could read the recitals and early articles of the OJ text of 2026/1744 but **not the operative Art. 113 amendment** (the fetch tool cut the document off around Art. 57). Recital 40, the amended-Art.-4 text and several law-firm sources agree on fixed dates and a softened Art. 4. A "conditional" reading appears in some sources; it traces to the Commission's earlier proposal or to the Art. 111(2) legacy-systems rule, not to the adopted dates. Article-level amendments beyond Arts. 4, 4a, 43(3) and 57 are secondary-sourced. Check the OJ text before relying on any of it.
 
 ### 5. "NIST AI RMF subcategories are deliberately non-prescriptive. How did you map open-ended outcomes to specific legal obligations?"
 
@@ -48,7 +48,7 @@ Each entry gives the attack, the answer, where in the repository the answer live
 
 **Answer.** No. Controls are cited by number with author-written intent summaries. The README says so in the copyright statement. A validator rejects cells containing quotation marks or longer than 420 characters, and checks every cited number against the identifier list.
 **Where.** README "Copyright statement (ISO)"; `scripts/build_crosswalk.py`.
-**Weak point.** A script cannot detect a paraphrase that is too close to the source. The intent summaries were written from my knowledge and the author's metadata skeleton, not by copying, but **the author, as a Lead Implementer holding a licensed copy, should read them against the standard before publishing.** ISO main-body clause numbers (`cl. x.y`) are not in the skeleton and are unverified.
+**Weak point.** A script cannot detect a paraphrase that is too close to the source. The intent summaries were written from my knowledge and the author-supplied metadata skeleton, not by copying, but **the author, as a Lead Implementer holding a licensed copy, should read them against the standard before publishing.** Separately, the Annex A identifier list is not verified against a licensed copy; its provenance and limits are stated in the README and `docs/AUDIT_LOG.md`. Main-body clause numbers were removed on 2 Oct 2026 because they could not be verified.
 
 ---
 
