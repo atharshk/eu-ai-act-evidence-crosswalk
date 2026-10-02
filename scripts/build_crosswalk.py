@@ -53,7 +53,7 @@ def validate(rows):
             errs.append(f"{oid}: bad nist_verdict {r['nist_verdict']!r}")
         if r["iso27001_verdict"] not in R.VERDICTS_27001:
             errs.append(f"{oid}: bad iso27001_verdict {r['iso27001_verdict']!r}")
-        # ISO 42001 Annex A ids must exist in the skeleton
+        # ISO 42001 Annex A ids must exist in the reference list (which mirrors the supplied skeleton; see README provenance)
         for a in re.findall(r"\bA\.\d{1,2}(?:\.\d{1,2}){1,2}\b", r["iso42001_clause_or_control"]):
             if a not in R.ISO42001_ANNEX_A:
                 errs.append(f"{oid}: unknown ISO 42001 Annex A id {a}")
@@ -71,8 +71,12 @@ def validate(rows):
             for tok in [t.strip() for t in r["nist_ai_rmf_subcategory"].split(";")]:
                 if tok not in R.NIST_AI_RMF:
                     errs.append(f"{oid}: unknown NIST AI RMF subcategory {tok!r}")
-        # 27001 ids exist (strip 'cl.' clause refs first)
-        txt = re.sub(r"cl\.\s*[\d\.\-–, ]+", "", r["iso27001_2022_supplementary"])
+        # Main-body clause numbers are NOT cited anywhere (they could not be verified against a licensed copy).
+        for col in ("iso42001_clause_or_control", "iso27001_2022_supplementary"):
+            if re.search(r"\b(?:cl\.|clauses?)\s*\d", r[col], flags=re.I):
+                errs.append(f"{oid}: main-body clause number cited in {col}; cite Annex A controls only")
+        # 27001 ids exist
+        txt = r["iso27001_2022_supplementary"]
         found = set(re.findall(r"\b([5-8]\.\d{1,2})\b", txt)) | expand_ranges(txt)
         for a in found:
             if a not in R.ISO27001_ANNEX_A:
