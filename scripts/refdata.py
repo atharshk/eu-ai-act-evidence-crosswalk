@@ -1,9 +1,16 @@
-"""Reference ID sets used ONLY to validate that cited control/subcategory numbers exist.
+"""Reference ID sets used ONLY to check that cited control/subcategory numbers exist in a list.
 
-These are identifiers (numbers + titles), not standard text.
-  - ISO/IEC 42001:2023 Annex A: identifiers taken from the author's metadata skeleton.
-  - ISO/IEC 27001:2022 Annex A: identifiers taken from the author's metadata skeleton.
-  - NIST AI RMF 1.0 (NIST AI 100-1, Jan 2023): subcategory identifiers (US government work).
+PROVENANCE (read this before trusting a green validator run):
+  - ISO/IEC 42001:2023 Annex A (38 control identifiers): copied from the "metadata skeleton" file the author
+    supplied with the project. On 2 Oct 2026 the list was diffed against that file (identical, 38 = 38) and
+    compared with two public listings (a Singapore AI Verify Foundation crosswalk and one vendor page); the
+    identifiers agree. IT HAS NOT BEEN CHECKED LINE BY LINE AGAINST A LICENSED COPY OF THE STANDARD.
+  - ISO/IEC 27001:2022 Annex A (93 identifiers, 5.1-5.37, 6.1-6.8, 7.1-7.14, 8.1-8.34): generated from numeric
+    ranges that match the supplied skeleton's counts. NOT checked against a licensed copy either.
+  - NIST AI RMF 1.0 (72 subcategories): reconciled against Tables 1-4 of the NIST AI 100-1 PDF supplied with the
+    project (US government work).
+A validator pass therefore proves "this ID is in the list", not "this ID is in the published standard".
+Identifiers only - no standard text is stored here.
 """
 
 ISO42001_ANNEX_A = {
@@ -17,13 +24,6 @@ ISO42001_ANNEX_A = {
     "A.8.2", "A.8.3", "A.8.4", "A.8.5",
     "A.9.2", "A.9.3", "A.9.4",
     "A.10.2", "A.10.3", "A.10.4",
-}
-
-# Main-body clause numbers are NOT in the skeleton the author supplied; they are cited from
-# author knowledge of the standard's structure and are flagged as unverified in the README.
-ISO42001_CLAUSES_UNVERIFIED = {
-    "4", "5.2", "5.3", "6.1.2", "6.1.3", "6.1.4", "7.2", "7.3", "7.5",
-    "8.1", "8.2", "8.3", "8.4", "9.1", "9.2", "9.3", "10.1", "10.2",
 }
 
 ISO27001_ANNEX_A = (

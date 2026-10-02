@@ -7,7 +7,7 @@
 ## The three things to know before you read a single row
 
 1. **ISO/IEC 42001 certification does not, by itself, confer presumption of conformity with the AI Act.** Presumption flows from harmonised standards whose references are published in the Official Journal (Art. 40), developed through CEN-CENELEC JTC 21. ISO 42001 sits outside that programme. As of the newest source I could retrieve (15 Sep 2026) **no AI Act harmonised standard is cited in the OJ yet**. Details: [docs/HARMONISED_STANDARDS.md](docs/HARMONISED_STANDARDS.md).
-2. **The high-risk timeline has moved.** Regulation (EU) 2026/1744 (the "Digital Omnibus on AI", in force 27 Jul 2026) moved high-risk obligations to **2 Dec 2027** (Annex III) and **2 Aug 2028** (Annex I). Details and what I could not verify: [docs/TIMELINE.md](docs/TIMELINE.md).
+2. **The high-risk timeline has moved.** Regulation (EU) 2026/1744 (the "Digital Omnibus on AI", in force 27 Jul 2026) moved high-risk obligations to **2 Dec 2027** (Annex III) and **2 Aug 2028** (Annex I), as fixed dates rather than a standards-triggered deferral. I could read the recitals of the Official Journal text but not the operative Art. 113 amendment, so check that before relying on it. Details: [docs/TIMELINE.md](docs/TIMELINE.md).
 3. **Every row has an actor role and a risk tier.** The row key is the triple **(obligation, actor role, risk tier)**. An obligation that binds a provider may not bind a deployer at all.
 
 ## Scope
@@ -40,6 +40,7 @@ docs/GAP_ANALYSIS.md            "We are ISO 42001 certified - what are we expose
 docs/TIMELINE.md                phased application timeline, as-of stamp, verification status
 docs/HARMONISED_STANDARDS.md    presumption-of-conformity mechanism + JTC 21 pipeline
 docs/RED_TEAM.md                the 11 hardest attacks on this work, with answers and honest weak points
+docs/AUDIT_LOG.md              verification log: what was checked, errors found, what was NOT verified
 docs/SOURCES.md                 sources and how each was used
 scripts/                        build + validation (python3 scripts/build_crosswalk.py && ...)
 ```
@@ -66,10 +67,10 @@ No row is rated "fully covers". That is deliberate.
 | Source | Version used | Note |
 |---|---|---|
 | Regulation (EU) 2024/1689 | OJ L, 12.7.2024 text supplied with the project (article numbering) | **Not a consolidated text.** Amendments by Regulation (EU) 2026/1744 were overlaid from secondary sources and are flagged per row. |
-| Regulation (EU) 2026/1744 | Published OJ 24 Jul 2026; in force 27 Jul 2026 | Researched via secondary sources; **OJ text not directly retrieved.** |
-| ISO/IEC 42001:2023 | Annex A identifiers from the author's metadata skeleton; main-body clause numbers from the author's Lead Implementer knowledge | Clause numbers (`cl. x.y`) are **not verified against the skeleton**; check them against your licensed copy. |
-| ISO/IEC 27001:2022 | Annex A identifiers from the author's metadata skeleton | Supplementary column only. |
-| NIST AI RMF 1.0 (NIST AI 100-1, Jan 2023) | Full text supplied; subcategory numbers machine-checked | The Playbook is a living web resource with no version number; NIST's page shows "Updated June 10, 2026" and says the Playbook will be updated after the AI RMF is revised. No AI RMF 1.1 was identified. |
+| Regulation (EU) 2026/1744 | Published OJ 24 Jul 2026; in force 27 Jul 2026 | OJ text **read in part** (recitals and early articles; the fetch cut off before the operative Art. 113). Dates corroborated by several secondary sources. See TIMELINE.md. |
+| ISO/IEC 42001:2023 | The 38 Annex A control identifiers come from a metadata-skeleton file supplied by the author, diffed against the validator's list (identical) and compared with two public listings (they agree). **Not verified line by line against a licensed copy of the standard.** Main-body clause numbers are **not cited**: they were removed on 2 Oct 2026 because they could not be verified. Annex A controls are the citation unit throughout. | Readers with a licensed copy should re-verify. See `docs/AUDIT_LOG.md`. |
+| ISO/IEC 27001:2022 | Annex A identifiers (93) generated from numeric ranges matching the supplied skeleton's counts. **Not verified against a licensed copy.** | Supplementary column only. |
+| NIST AI RMF 1.0 (NIST AI 100-1, Jan 2023) | Full text supplied; the 72-subcategory list was reconciled against Tables 1-4 | The Playbook is a living web resource with no version number; NIST's page shows "Updated June 10, 2026" and says the Playbook will be updated after the AI RMF is revised. No AI RMF 1.1 was identified. |
 | **Timeline** | **As of 2 October 2026** | **Subject to ongoing legislative amendment.** |
 
 ## Copyright statement (ISO)
@@ -82,6 +83,9 @@ No row is rated "fully covers". That is deliberate.
 - **Verdicts are judgement.** They were not produced by any measurement and have not been independently reviewed. Two practitioners could reasonably differ by one step on many rows. The `residual_gap` column states the reasoning so a reader can disagree specifically.
 - **The percentages in the gap analysis describe this row selection**, not "how compliant" anyone is.
 - **Secondary-source dependency.** The 2026 amendments and the standards pipeline status come from law-firm notes and public trackers. See TIMELINE.md for exactly what was and was not verified.
+- **Identifier-list provenance.** The validator confirms that every cited ISO and NIST identifier appears in a reference list. The strength of that check depends on where the list came from, which is stated in the version-stamp table above. It is not independent verification against the published ISO standards.
+- **Annex A controls only.** Main-body clause references were removed rather than published unverified.
+- **Audit log.** What was checked, errors found and what was not verified: [docs/AUDIT_LOG.md](docs/AUDIT_LOG.md).
 - **Evidence is not effectiveness.** A control that "partially evidences" an obligation only helps if it operates. The register handles that with an effectiveness cap and an evidence requirement.
 
 ## The risk register (`/register/`)
@@ -110,7 +114,7 @@ The register workbook was recalculated in LibreOffice and the formula results ma
 3. **Harmonised-standards finding with live pipeline status** - why a certificate is not a presumption, and what would change that.
 4. **ISO-certified-organisation gap view** - the question clients pay for.
 5. **Rights-aware register wired to the crosswalk by ID** - dual scoring, anchored scales, verdict-derived control caps.
-6. **Post-Omnibus awareness and machine-checked identifiers** - every ISO Annex A, 27001 Annex A and NIST subcategory cited is validated against an identifier list.
+6. **Post-Omnibus awareness and a published verification log** - every cited ISO Annex A, 27001 Annex A and NIST identifier and every AI Act article reference is checked by script, and [docs/AUDIT_LOG.md](docs/AUDIT_LOG.md) states what that does and does not prove.
 
 ## Licence
 
